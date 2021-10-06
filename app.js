@@ -38,14 +38,16 @@ app.post("/", function(req, res){
   }
   const request = https.request(url, options, function(response){
     if (response.statusCode === 200){
-      res.sendFile(__dirname + "/success.html");
+      //res.sendFile(__dirname + "/success.html");
     } else {
-      res.sendFile(__dirname + "/failure.html");
+
+      //res.sendFile(__dirname + "/failure.html");
     }
     response.on("data", function(data){
       //console.log(data
       //console.log(JSON.stringify(data));
       console.log(JSON.parse(data));
+      res.send(JSON.parse(data));
     });
   });
   request.write(jsonData);
