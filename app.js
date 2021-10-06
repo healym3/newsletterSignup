@@ -34,20 +34,20 @@ app.post("/", function(req, res){
   const url = "https://us5.api.mailchimp.com/3.0/lists/7d807a83e2";
   const options = {
     method: "POST",
-    auth: process.env.API_KEY;
+    auth: process.env.API_KEY
   }
   const request = https.request(url, options, function(response){
     if (response.statusCode === 200){
-      //res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/success.html");
     } else {
 
-      //res.sendFile(__dirname + "/failure.html");
+      res.sendFile(__dirname + "/failure.html");
     }
     response.on("data", function(data){
       //console.log(data
       //console.log(JSON.stringify(data));
       console.log(JSON.parse(data));
-      res.send(JSON.parse(data));
+      //res.send(JSON.parse(data));
     });
   });
   request.write(jsonData);
