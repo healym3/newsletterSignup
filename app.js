@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req,res){
+  console.log(process.env.API_KEY);
   res.sendFile(__dirname + "/signup.html");
 });
 
