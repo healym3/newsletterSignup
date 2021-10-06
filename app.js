@@ -35,7 +35,7 @@ app.post("/", function(req, res){
   const url = "https://us5.api.mailchimp.com/3.0/lists/7d807a83e2";
   const options = {
     method: "POST",
-    auth: process.env.API_KEY
+    auth: "healym3:" + process.env.API_KEY
   }
   const request = https.request(url, options, function(response){
     if (response.statusCode === 200){
@@ -61,8 +61,7 @@ app.listen(process.env.PORT || 3000, function(){
   console.log("Server is running on port 3000.");
 });
 
-//mailchimp api key
-// a4e33224882f194dd6860e7a70cb2a41-us5
+
 
 //mailchimp mail list
 // 7d807a83e2
